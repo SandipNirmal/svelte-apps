@@ -2,6 +2,7 @@
   import { fly } from 'svelte/transition';
 
   export let toggleSidebar = () => {};
+  let selected = 3;
 
   const notes = [
     {
@@ -121,10 +122,13 @@
   </div>
 
   <ul>
-    {#each notes as note}
-      <li class="p-2 hover:bg-gray-200 cursor-pointer border-b">
-        <h4 class="font-medium text-sm">{note.title}</h4>
-        <span class="text-gray-600 text-xs">{note.date}</span>
+    {#each notes as { title, date }, i}
+      <li
+        class="p-2 hover:bg-gray-200 cursor-pointer border-b"
+        class:bg-gray-200={i === selected}
+        on:click={() => (selected = i)}>
+        <h4 class="font-medium text-sm">{title}</h4>
+        <span class="text-gray-600 text-xs">{date}</span>
       </li>
     {/each}
   </ul>
