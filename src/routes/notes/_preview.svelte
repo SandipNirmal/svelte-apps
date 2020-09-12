@@ -1,10 +1,16 @@
 <script>
-import marked from 'marked';
-export let content = '## No Content';
+  import marked from 'marked';
+  export let content = '## No Content';
 
-$: markup = marked(content);
+  $: markup = marked(content);
 </script>
 
-<p class="prose">
+<style>
+  :global(.prose a ){
+    color: #3182ce;
+  }
+</style>
+
+<article class="prose max-h-screen overflow-y-scroll">
   {@html markup}
-</p>
+</article>

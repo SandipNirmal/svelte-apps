@@ -28,7 +28,7 @@
 } */ */
 
 .prose a {
-  @apply text-green-600;
+  @apply text-blue-600 !important;
 }
 
 /* .prose strong a {
@@ -36,11 +36,11 @@
 } */
 
 .prose h1 {
-  @apply border-b;
+  @apply border-b pb-4;
 }
 
 .prose h2 {
-  @apply border-b;
+  @apply border-b pb-2 mt-4;
 }
 
 /* .prose code {
