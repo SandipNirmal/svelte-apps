@@ -1,25 +1,5 @@
-<style>
-	h1 {
-		text-align: center;
-		margin: 0 auto;
-	}
-
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
-</style>
-
 <svelte:head>
-	<title>Svelte Applications built With Sapper</title>
+  <title>Svelte Applications built With Sapper</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1 class="text-center my-0 mx-auto font-bold text-3xl">Built with Svelte</h1>

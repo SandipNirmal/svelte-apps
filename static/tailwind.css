@@ -1,3 +1,86 @@
 @tailwind base;
 @tailwind components;
+
+/* Additional vertical padding used by kbd tag. */
+/* .py-05 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}*/
+
+.prose {
+  @apply break-words p-4 max-w-full;
+}
+
+/* .prose > * + * {
+  @apply mt-0 mb-4;
+}
+
+.prose li + li {
+  @apply mt-1;
+}
+
+.prose li > p + p {
+  @apply mt-6;
+}
+
+.prose strong {
+  @apply font-semibold;
+} */ */
+
+.prose a {
+  @apply text-green-600;
+}
+
+/* .prose strong a {
+  @apply font-bold;
+} */
+
+.prose h1 {
+  @apply border-b;
+}
+
+.prose h2 {
+  @apply border-b;
+}
+
+/* .prose code {
+  @apply font-mono text-sm inline bg-gray-200 rounded px-1 py-05;
+}
+
+.prose pre {
+  @apply bg-gray-100 rounded p-4;
+}
+
+.prose pre code {
+  @apply block bg-transparent p-0 overflow-visible rounded-none;
+} */
+
+/* .prose ol > li::before {
+  @apply text-green-600;
+} */
+
+.prose li {
+  @apply py-1 pl-4;
+}
+
+/* .prose kbd {
+  @apply text-xs inline-block rounded border px-1 py-05 align-middle font-normal font-mono shadow;
+}
+
+.prose table {
+  @apply text-base border-gray-600;
+}
+
+.prose th {
+  @apply border py-1 px-3;
+}
+
+.prose td {
+  @apply border py-1 px-3;
+}
+
+.prose .highlight pre {
+  @apply bg-gray-100 !important;
+} */
+
 @tailwind utilities;
