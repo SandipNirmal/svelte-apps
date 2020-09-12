@@ -2,6 +2,89 @@
   import { fly } from 'svelte/transition';
 
   export let toggleSidebar = () => {};
+
+  const notes = [
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'Second Note',
+      date: '22 Aug 2020',
+    },
+    {
+      title: 'Third Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'Second Note',
+      date: '22 Aug 2020',
+    },
+    {
+      title: 'Third Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'Second Note',
+      date: '22 Aug 2020',
+    },
+    {
+      title: 'Third Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'Second Note',
+      date: '22 Aug 2020',
+    },
+    {
+      title: 'Third Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+    {
+      title: 'First Note',
+      date: '12 Aug 2020',
+    },
+  ];
 </script>
 
 <style>
@@ -21,7 +104,7 @@
   class="h-screen sidebar overflow-y-auto px-4 py-2 shadow-lg bg-gray-100 z-10"
   transition:fly={{ x: -320, opacity: 1 }}>
   <div class="flex justify-between items-center mb-4">
-    <h2 class="font-semibold text-2xl">Notes</h2>
+    <h2 class="font-semibold text-2xl px-2">Notes</h2>
     <button class="px-1" on:click={toggleSidebar}>
       <svg
         aria-hidden="true"
@@ -38,6 +121,11 @@
   </div>
 
   <ul>
-    <li><a href="/notes/123"> First Note</a></li>
+    {#each notes as note}
+      <li class="p-2 hover:bg-gray-200 cursor-pointer border-b">
+        <h4 class="font-medium text-sm">{note.title}</h4>
+        <span class="text-gray-600 text-xs">{note.date}</span>
+      </li>
+    {/each}
   </ul>
 </article>
