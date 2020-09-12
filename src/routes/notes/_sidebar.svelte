@@ -102,9 +102,10 @@
 </style>
 
 <article
-  class="h-screen sidebar overflow-y-auto px-4 py-2 shadow-lg bg-gray-100 z-10"
+  class="flex flex-col sidebar shadow-lg bg-gray-100 z-10"
   transition:fly={{ x: -320, opacity: 1 }}>
-  <div class="flex justify-between items-center mb-4">
+  <div
+    class="flex justify-between items-center sticky top-0 px-4 py-2 z-20 mb-2">
     <h2 class="font-semibold text-2xl px-2">Notes</h2>
     <button class="px-1" on:click={toggleSidebar}>
       <svg
@@ -121,7 +122,7 @@
     </button>
   </div>
 
-  <ul>
+  <ul class="overflow-y-auto flex-1 bg-gray-100 px-4 py-2">
     {#each notes as { title, date }, i}
       <li
         class="p-2 hover:bg-gray-200 cursor-pointer border-b"

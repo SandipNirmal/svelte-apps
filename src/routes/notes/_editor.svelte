@@ -21,7 +21,7 @@ Repository for application examples built using [Svelte](https://svelte.dev) and
 </script>
 
 <div class="flex flex-col h-screen">
-  <div class="flex justify-between px-4 bg-gray-300">
+  <div class="flex justify-between py-2 px-4 bg-gray-300">
     <button on:click={toggleSidebar} class="px-2">
       <svg
         aria-hidden="true"
@@ -66,7 +66,7 @@ Repository for application examples built using [Svelte](https://svelte.dev) and
 
   {#if !isPreview}
     <textarea
-      class="py-2 px-4 h-screen cursor-text outline-none foucs:border-none"
+      class="py-2 px-6 h-screen cursor-text outline-none foucs:border-none"
       on:input={(e) => {
         $content = e.target.value;
       }}

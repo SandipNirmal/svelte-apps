@@ -6,11 +6,11 @@
 </script>
 
 <style>
-  :global(.prose a ){
+  :global(.prose a) {
     color: #3182ce;
   }
 </style>
 
-<article class="prose max-h-screen overflow-y-scroll">
+<article class="prose max-h-screen overflow-y-scroll px-6">
   {@html markup}
 </article>
