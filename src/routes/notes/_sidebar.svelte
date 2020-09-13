@@ -21,6 +21,16 @@
       return `${date.getDay()}, ${date.getDate()} ${date.getFullMonth()} ${date.getFullYear()}`;
     }
   }
+
+  function selectNote(i) {
+    setSelected(i);
+
+    // For smaller devices close the sidebar on selection
+    const mq = window.matchMedia('(max-width: 600px)');
+    if (mq.matches) {
+      toggleSidebar();
+    }
+  }
 </script>
 
 <style>
@@ -28,11 +38,19 @@
     width: 240px;
   }
 
+  .sidebar ul li {
+    width: 200px;
+  }
+
   @media (max-width: 480px) {
     .sidebar {
       position: fixed;
       width: 100%;
       height: 100%;
+    }
+
+    .sidebar ul li {
+      width: auto;
     }
   }
 </style>
@@ -63,7 +81,7 @@
       <li
         class="p-2 hover:bg-gray-200 cursor-pointer border-b"
         class:bg-gray-200={i === selectedNote}
-        on:click={() => setSelected(i)}>
+        on:click={() => selectNote(i)}>
         <h4 class="font-medium text-sm">{title}</h4>
         <span
           class="text-gray-600 text-xs">{getTimeDiffFromNow(updatedAt)}</span>

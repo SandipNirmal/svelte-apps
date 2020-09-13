@@ -68,6 +68,13 @@
   }
 </style>
 
+<svelte:head>
+  <meta
+    name="description"
+    content="Notes Apps | Built with Svelte" />
+  <title>Notes App</title>
+</svelte:head>
+
 <div class="flex h-screen">
   {#if sidebarOpen}
     <Sidebar {toggleSidebar} {notesList} {setSelected} {selectedNote} />
@@ -81,9 +88,9 @@
         <div class="prose text-center">
           <button
             on:click={addNewNote}
-            class="py-1 px-2 border bg-green-600 border-green-700 text-white
-              outline-none hover:shadow-md">+ Add Note</button>
-          <p class="desc">No note found, create a note.</p>
+            class="py-1 px-2 border bg-green-700 text-white outline-none
+              hover:shadow-md">+ Add Note</button>
+          <p class="desc">No Note Found, Create One.</p>
         </div>
       </div>
     {/if}

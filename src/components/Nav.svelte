@@ -16,7 +16,7 @@
     justify-center w-12 h-12">
   <ul class="p-2">
     <li>
-      <a href=".">
+      <a href="." alt='Home'>
         <svg
           aria-hidden="true"
           focusable="false"
