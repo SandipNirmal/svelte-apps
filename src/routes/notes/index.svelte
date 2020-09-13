@@ -75,7 +75,7 @@
 
   <div class="editor flex-1">
     {#if notesList.length}
-      <Editor {toggleSidebar} note={currentNote} {updateNote} />
+      <Editor {toggleSidebar} note={currentNote} {updateNote} {addNewNote} />
     {:else}
       <div class="flex items-center justify-center w-full h-full">
         <div class="prose text-center">
