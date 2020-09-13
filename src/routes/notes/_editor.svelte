@@ -3,9 +3,20 @@
   import Preview from './_preview.svelte';
 
   export let toggleSidebar = () => {};
+  export let updateNote = () => {};
   export let note = { content: 'No Content' };
 
   let isPreview = true;
+
+  const handleChange = (e) => {
+    const content = e.target.value;
+
+    note.content = content;
+    note.title = content.startsWith('#')
+      ? `${content.substr(2, 10)}...`
+      : `${content.substr(0, 10)}...`;
+    updateNote(note.id, note);
+  };
 </script>
 
 <div class="flex flex-col h-screen">
@@ -54,10 +65,8 @@
 
   {#if !isPreview}
     <textarea
-      class="py-2 px-6 h-screen cursor-text outline-none foucs:border-none"
-      on:input={(e) => {
-        note.content = e.target.value;
-      }}
+      class="py-2 px-6 pb-8 h-screen cursor-text outline-none foucs:border-none"
+      on:change={handleChange}
       value={note.content} />
   {:else}
     <Preview content={note.content} />

@@ -11,7 +11,7 @@
     const diffInSecs = (now - time) / 1000;
 
     if (diffInSecs < 60) {
-      return `${diffInSecs} seconds ago`;
+      return `${Math.ceil(diffInSecs)} seconds ago`;
     } else if (diffInSecs > 60 && diffInSecs < 3600) {
       return `${Math.floor(diffInSecs / 60)} mins ago`;
     } else if (diffInSecs > 3600 && diffInSecs < 24 * 3600) {

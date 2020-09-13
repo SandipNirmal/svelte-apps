@@ -45,7 +45,12 @@
     notes = createNote(content);
   };
 
-  const updateNote = (id, content) => {};
+  const updateNote = (id, content) => {
+    const currentNotes = getNotes();
+    currentNotes[id] = { ...content, updatedAt: Date.now() };
+    localStorage.setItem(storage_key, JSON.stringify(currentNotes));
+    notes = getNotes();
+  };
 
   $: notesList = Object.keys(notes)
     .map((note) => notes[note])
@@ -70,7 +75,7 @@
 
   <div class="editor flex-1">
     {#if notesList.length}
-      <Editor {toggleSidebar} note={currentNote} />
+      <Editor {toggleSidebar} note={currentNote} {updateNote} />
     {:else}
       <div class="flex items-center justify-center w-full h-full">
         <div class="prose text-center">
