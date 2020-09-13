@@ -3,20 +3,8 @@
   import Preview from './_preview.svelte';
 
   export let toggleSidebar = () => {};
+  export let note = { content: 'No Content' };
 
-  const content = writable(`# Svelte Apps
-Repository for application examples built using [Svelte](https://svelte.dev) and it's web framework [Sapper](https://sapper.svelte.dev). Sapper is used as a framework here which is being used to manage things like routing.
-
-### Applications
-
-1. Notes App
-2. Todo App
-3. Weather App
-4. Quizz App
-5. Pomodoro App
-6. Movies & TV Shows App
-7. Profile App (Like Github/Twitter) 
-`);
   let isPreview = true;
 </script>
 
@@ -68,10 +56,10 @@ Repository for application examples built using [Svelte](https://svelte.dev) and
     <textarea
       class="py-2 px-6 h-screen cursor-text outline-none foucs:border-none"
       on:input={(e) => {
-        $content = e.target.value;
+        note.content = e.target.value;
       }}
-      bind:value={$content} />
+      value={note.content} />
   {:else}
-    <Preview content={$content} />
+    <Preview content={note.content} />
   {/if}
 </div>

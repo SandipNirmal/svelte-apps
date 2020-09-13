@@ -2,90 +2,25 @@
   import { fly } from 'svelte/transition';
 
   export let toggleSidebar = () => {};
-  let selected = 3;
+  export let notesList = [];
+  export let selectedNote = 0;
+  export let setSelected = () => {};
 
-  const notes = [
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'Second Note',
-      date: '22 Aug 2020',
-    },
-    {
-      title: 'Third Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'Second Note',
-      date: '22 Aug 2020',
-    },
-    {
-      title: 'Third Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'Second Note',
-      date: '22 Aug 2020',
-    },
-    {
-      title: 'Third Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'Second Note',
-      date: '22 Aug 2020',
-    },
-    {
-      title: 'Third Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-    {
-      title: 'First Note',
-      date: '12 Aug 2020',
-    },
-  ];
+  function getTimeDiffFromNow(time) {
+    const now = Date.now();
+    const diffInSecs = (now - time) / 1000;
+
+    if (diffInSecs < 60) {
+      return `${diffInSecs} seconds ago`;
+    } else if (diffInSecs > 60 && diffInSecs < 3600) {
+      return `${Math.floor(diffInSecs / 60)} mins ago`;
+    } else if (diffInSecs > 3600 && diffInSecs < 24 * 3600) {
+      return `${Math.floor(diffInSecs / 3600)} hours ago`;
+    } else {
+      const date = new Date(time);
+      return `${date.getDay()}, ${date.getDate()} ${date.getFullMonth()} ${date.getFullYear()}`;
+    }
+  }
 </script>
 
 <style>
@@ -123,13 +58,14 @@
   </div>
 
   <ul class="overflow-y-auto flex-1 bg-gray-100 px-4 py-2">
-    {#each notes as { title, date }, i}
+    {#each notesList as { title, updatedAt }, i}
       <li
         class="p-2 hover:bg-gray-200 cursor-pointer border-b"
-        class:bg-gray-200={i === selected}
-        on:click={() => (selected = i)}>
+        class:bg-gray-200={i === selectedNote}
+        on:click={() => setSelected(i)}>
         <h4 class="font-medium text-sm">{title}</h4>
-        <span class="text-gray-600 text-xs">{date}</span>
+        <span
+          class="text-gray-600 text-xs">{getTimeDiffFromNow(updatedAt)}</span>
       </li>
     {/each}
   </ul>
