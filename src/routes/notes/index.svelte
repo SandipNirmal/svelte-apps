@@ -41,7 +41,12 @@
   notes = getNotes() || {};
 
   const addNewNote = () => {
-    const content = { id: Date.now(), title: 'New Note', content: '' };
+    const content = {
+      id: Date.now(),
+      title: 'New Note',
+      content: `# New Note
+ Add Something...`,
+    };
     notes = createNote(content);
   };
 
@@ -69,9 +74,7 @@
 </style>
 
 <svelte:head>
-  <meta
-    name="description"
-    content="Notes Apps | Built with Svelte" />
+  <meta name="description" content="Notes Apps | Built with Svelte" />
   <title>Notes App</title>
 </svelte:head>
 
