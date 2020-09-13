@@ -18,10 +18,21 @@
       : `${content.substr(0, 10)}...`;
     updateNote(note.id, note);
   };
+
+  const createNewNote = () => {
+    addNewNote();
+    isPreview = false;
+  };
 </script>
 
+<style>
+  .header {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  }
+</style>
+
 <div class="flex flex-col h-screen">
-  <div class="flex justify-between py-2 px-2 bg-gray-300">
+  <div class="flex justify-between py-2 px-2 bg-gray-300 header">
     <button on:click={toggleSidebar} class="px-2">
       <svg
         aria-hidden="true"
@@ -36,7 +47,7 @@
     </button>
 
     <div class="flex">
-      <button class="flex items-center py-1 px-2 mr-1" on:click={addNewNote}>
+      <button class="flex items-center py-1 px-2 mr-1" on:click={createNewNote}>
         <svg
           aria-hidden="true"
           focusable="false"
@@ -84,6 +95,7 @@
     <textarea
       class="py-2 px-6 pb-8 h-screen cursor-text outline-none foucs:border-none"
       on:change={handleChange}
+      autofocus
       value={note.content} />
   {:else}
     <Preview content={note.content} />
