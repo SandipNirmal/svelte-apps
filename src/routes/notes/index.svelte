@@ -57,6 +57,13 @@
     notes = getNotes();
   };
 
+  const deleteNote = (id) => {
+    const currentNotes = getNotes();
+    delete currentNotes[id];
+    localStorage.setItem(storage_key, JSON.stringify(currentNotes));
+    notes = getNotes();
+  };
+
   $: notesList = Object.keys(notes)
     .map((note) => notes[note])
     .sort((a, b) => b.updatedAt - a.updatedAt);
@@ -80,7 +87,12 @@
 
 <div class="flex h-screen">
   {#if sidebarOpen}
-    <Sidebar {toggleSidebar} {notesList} {setSelected} {selectedNote} />
+    <Sidebar
+      {toggleSidebar}
+      {notesList}
+      {setSelected}
+      {selectedNote}
+      {deleteNote} />
   {/if}
 
   <div class="editor flex-1">

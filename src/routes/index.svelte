@@ -11,7 +11,10 @@
 <style>
   .icon {
     text-shadow: 0 6px 4px #444;
-    /* box-shadow: 0 4px 8px #888; */
+  }
+
+  .icon:hover {
+    box-shadow: 0 4px 8px #888;
   }
 </style>
 

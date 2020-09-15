@@ -5,6 +5,7 @@
   export let notesList = [];
   export let selectedNote = 0;
   export let setSelected = () => {};
+  export let deleteNote = () => {};
 
   const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const MONTHS = [
@@ -95,14 +96,30 @@
   </div>
 
   <ul class="overflow-y-auto flex-1 bg-gray-100 px-4 py-2">
-    {#each notesList as { title, updatedAt }, i}
+    {#each notesList as { title, updatedAt, id }, i}
       <li
-        class="p-2 hover:bg-gray-200 cursor-pointer border-b"
+        class="p-2 hover:bg-gray-200 cursor-pointer border-b flex items-center"
         class:bg-gray-200={i === selectedNote}
         on:click={() => selectNote(i)}>
-        <h4 class="font-medium text-sm">{title}</h4>
-        <span
-          class="text-gray-600 text-xs">{getTimeDiffFromNow(updatedAt)}</span>
+        <div class="flex-1">
+          <h4 class="font-medium text-sm">{title}</h4>
+          <span
+            class="text-gray-600 text-xs">{getTimeDiffFromNow(updatedAt)}</span>
+        </div>
+
+        <button on:click={() => deleteNote(id)}>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            data-icon="trash"
+            role="img"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"
+            class="w-6 h-6 p-1"><path
+              fill="currentColor"
+              d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"
+              class="" /></svg>
+        </button>
       </li>
     {/each}
   </ul>
