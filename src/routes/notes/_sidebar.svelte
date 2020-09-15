@@ -6,6 +6,22 @@
   export let selectedNote = 0;
   export let setSelected = () => {};
 
+  const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const MONTHS = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
   function getTimeDiffFromNow(time) {
     const now = Date.now();
     const diffInSecs = (now - time) / 1000;
@@ -18,7 +34,9 @@
       return `${Math.floor(diffInSecs / 3600)} hours ago`;
     } else {
       const date = new Date(time);
-      return `${date.getDay()}, ${date.getDate()} ${date.getFullMonth()} ${date.getFullYear()}`;
+      return `${DAYS[date.getDay()]}, ${date.getDate()} ${
+        MONTHS[date.getMonth()]
+      } ${date.getFullYear()}`;
     }
   }
 
