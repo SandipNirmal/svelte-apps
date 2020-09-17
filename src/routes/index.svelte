@@ -11,6 +11,7 @@
 <style>
   .icon {
     text-shadow: 0 6px 4px #444;
+    transition: all 0.3s linear;
   }
 
   .icon:hover {
@@ -30,8 +31,8 @@
     {#each apps as { name, icon, href }}
       <a {href} alt={name} class="flex flex-col items-center">
         <div
-          class="icon w-12 h-12 rounded-full bg-orange-600 text-white font-bold
-            flex items-center justify-center text-2xl">
+          class="icon w-16 h-16 rounded-full bg-orange-500 text-white font-bold
+            flex items-center justify-center text-3xl">
           {icon}
         </div>
         <span class="text-gray-700 text-sm mt-1">{name}</span>

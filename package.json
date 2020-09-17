@@ -2,12 +2,18 @@
   "name": "svelte-apps",
   "description": "Svelte applications examples",
   "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/SandipNirmal/svelte-apps"
+  },
+  "author": {
+    "name": "Sandip Nirmal"
+  },
   "scripts": {
     "dev": "sapper dev",
     "watch:tailwind": "postcss static/tailwind.css -o static/main.css -w",
     "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o static/main.css",
     "build": "npm run build:tailwind && sapper build --legacy",
-    "export": "npm run build:tailwind && sapper export --legacy",
+    "export": "npm run build:tailwind && sapper export --basepath svelte-apps --legacy",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
