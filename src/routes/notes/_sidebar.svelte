@@ -1,5 +1,6 @@
 <script>
   import { fly } from 'svelte/transition';
+  import {getTimeDiffFromNow} from '../../../utils/dateUtils.js';
 
   export let toggleSidebar = () => {};
   export let notesList = [];
@@ -7,41 +8,8 @@
   export let setSelected = () => {};
   export let deleteNote = () => {};
 
-  const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const MONTHS = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-
-  function getTimeDiffFromNow(time) {
-    const now = Date.now();
-    const diffInSecs = (now - time) / 1000;
-
-    if (diffInSecs < 60) {
-      return `${Math.ceil(diffInSecs)} seconds ago`;
-    } else if (diffInSecs > 60 && diffInSecs < 3600) {
-      return `${Math.floor(diffInSecs / 60)} mins ago`;
-    } else if (diffInSecs > 3600 && diffInSecs < 24 * 3600) {
-      return `${Math.floor(diffInSecs / 3600)} hours ago`;
-    } else {
-      const date = new Date(time);
-      return `${DAYS[date.getDay()]}, ${date.getDate()} ${
-        MONTHS[date.getMonth()]
-      } ${date.getFullYear()}`;
-    }
-  }
-
-  function selectNote(i) {
+  const selectNote = (i) => () => {
+    
     setSelected(i);
 
     // For smaller devices close the sidebar on selection
@@ -100,7 +68,7 @@
       <li
         class="p-2 hover:bg-gray-200 cursor-pointer border-b flex items-center"
         class:bg-gray-200={i === selectedNote}
-        on:click={() => selectNote(i)}>
+        on:click={selectNote(i)}>
         <div class="flex-1">
           <h4 class="font-medium text-sm">{title}</h4>
           <span
