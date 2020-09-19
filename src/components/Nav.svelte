@@ -7,7 +7,8 @@
   }
 
   nav:hover {
-    box-shadow: 0 8px 16px rgba(56, 161, 105, 0.9), 0 6px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 8px 16px rgba(56, 161, 105, 0.9),
+      0 6px 6px rgba(0, 0, 0, 0.23);
   }
 </style>
 
@@ -16,7 +17,7 @@
     justify-center w-12 h-12">
   <ul class="p-2">
     <li>
-      <a href="." alt='Home'>
+      <a href="." alt="Home">
         <svg
           aria-hidden="true"
           focusable="false"
