@@ -17,8 +17,6 @@
       toggleSidebar();
     }
   };
-
-  console.log(getTimeDiffFromNow(Date.now() - 24 * 3600 * 1000));
 </script>
 
 <style>

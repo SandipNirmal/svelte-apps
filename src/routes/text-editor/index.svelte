@@ -1,0 +1,118 @@
+<script>
+  import Sidebar from '../notes/_sidebar.svelte';
+  import Editor from './_editor.svelte';
+
+  const storage_key = 'text_editor';
+  let sidebarOpen = false;
+  let selectedNote = 0;
+  let notes = {};
+  let currentNote = {};
+  let notesList = [];
+
+  const toggleSidebar = () => (sidebarOpen = !sidebarOpen);
+  const setSelected = (index) => (selectedNote = index);
+
+  let getNotes = () => {};
+  let createNote = () => {};
+  let getNote = () => {};
+
+  if (process.browser) {
+    // return all notes
+    getNotes = () => {
+      return JSON.parse(localStorage.getItem(storage_key) || '{}');
+    };
+
+    // add new note
+    createNote = (content) => {
+      const { id } = content;
+      const notes = getNotes();
+
+      notes[id] = { ...content, createdAt: Date.now(), updatedAt: Date.now() };
+      localStorage.setItem(storage_key, JSON.stringify(notes));
+      return getNotes();
+    };
+
+    getNote = (id) => {
+      const notes = getNotes();
+      return notes[id] || {};
+    };
+  }
+
+  notes = getNotes() || {};
+
+  const addNewNote = () => {
+    const content = {
+      id: Date.now(),
+      title: 'New Note',
+      content: ``,
+    };
+    notes = createNote(content);
+  };
+
+  const updateNote = (id, content) => {
+    const currentNotes = getNotes();
+    currentNotes[id] = { ...content, updatedAt: Date.now() };
+    localStorage.setItem(storage_key, JSON.stringify(currentNotes));
+    notes = getNotes();
+  };
+
+  const deleteNote = (id) => {
+    const currentNotes = getNotes();
+    delete currentNotes[id];
+    localStorage.setItem(storage_key, JSON.stringify(currentNotes));
+    notes = getNotes();
+  };
+
+  const handleUpdate = (e) => {
+    const {note} = e.detail;
+
+    // updateNote(note.id, note);
+  }
+
+  $: notesList = Object.keys(notes)
+    .map((note) => notes[note])
+    .sort((a, b) => b.updatedAt - a.updatedAt);
+  $: currentNote = notesList[selectedNote] || {};
+</script>
+
+<style>
+  button {
+    border-radius: 20px;
+  }
+
+  .prose p.desc {
+    margin-top: 8px;
+  }
+</style>
+
+<svelte:head>
+  <meta name="description" content="Notes Apps | Built with Svelte" />
+  <title>Notes App</title>
+</svelte:head>
+
+<div class="flex h-screen">
+  {#if sidebarOpen}
+    <Sidebar
+      {toggleSidebar}
+      {notesList}
+      {setSelected}
+      {selectedNote}
+      {deleteNote} />
+  {/if}
+
+  <div class="editor flex-1">
+    {#if notesList.length}
+      <Editor {toggleSidebar} note={currentNote} on:text-change={handleUpdate} {addNewNote} />
+    {:else}
+      <div class="flex items-center justify-center w-full h-full">
+        <div class="prose text-center">
+          <button
+            on:click={addNewNote}
+            class="py-1 px-2 border bg-green-700 text-white outline-none
+              hover:shadow-md">+ Add Note</button>
+          <p class="desc">No Note Found, Create One.</p>
+        </div>
+      </div>
+    {/if}
+  </div>
+</div>
