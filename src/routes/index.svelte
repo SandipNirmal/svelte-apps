@@ -1,5 +1,5 @@
 <script>
-  const BackgroundColors = ['red',  'green', 'orange', 'teal',  'blue', 'yellow','indigo']
+  const BackgroundColors = ['bg-red-500',  'bg-green-500', 'bg-orange-500', 'bg-teal-500',  'bg-blue-500', 'bg-yellow-500', 'bg-indigo-500']
 
   const apps = [
     {
@@ -7,11 +7,11 @@
       icon: 'N',
       href: '/notes',
     },
-    {
-      name: 'Text Editor',
-      icon: 'T',
-      href: '/text-editor',
-    },
+    // {
+    //   name: 'Text Editor',
+    //   icon: 'T',
+    //   href: '/text-editor',
+    // },
   ];
 </script>
 
@@ -38,7 +38,7 @@
     {#each apps as { name, icon, href }, i}
       <a {href} alt={name} class="flex flex-col items-center">
         <div
-          class="icon w-16 h-16 rounded-full {`bg-${BackgroundColors[i]}-500`} text-white font-bold
+          class="icon w-16 h-16 rounded-full {BackgroundColors[i]} text-white font-bold
             flex items-center justify-center text-3xl">
           {icon}
         </div>
