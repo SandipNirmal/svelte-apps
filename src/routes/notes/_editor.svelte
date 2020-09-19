@@ -95,7 +95,6 @@
     <textarea
       class="py-2 px-6 pb-8 h-screen cursor-text outline-none foucs:border-none"
       on:change={handleChange}
-      autofocus
       value={note.content} />
   {:else}
     <Preview content={note.content} />

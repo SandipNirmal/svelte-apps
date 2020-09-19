@@ -1,6 +1,6 @@
 <script>
   import { fly } from 'svelte/transition';
-  import {getTimeDiffFromNow} from '../../../utils/dateUtils.js';
+  import { getTimeDiffFromNow } from '../../utils/dateUtil';
 
   export let toggleSidebar = () => {};
   export let notesList = [];
@@ -9,7 +9,6 @@
   export let deleteNote = () => {};
 
   const selectNote = (i) => () => {
-    
     setSelected(i);
 
     // For smaller devices close the sidebar on selection
@@ -17,7 +16,9 @@
     if (mq.matches) {
       toggleSidebar();
     }
-  }
+  };
+
+  console.log(getTimeDiffFromNow(Date.now() - 24 * 3600 * 1000));
 </script>
 
 <style>

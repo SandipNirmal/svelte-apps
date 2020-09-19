@@ -1,5 +1,5 @@
-export const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-export const MONTHS = [
+const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const MONTHS = [
   "Jan",
   "Feb",
   "Mar",
@@ -13,6 +13,11 @@ export const MONTHS = [
   "Nov",
   "Dec",
 ];
+
+const SECOND = 1000;
+const MIN = 60 * SECOND;
+const HOUR = 60 * MIN;
+const DAY = 24 * HOUR;
 
 /**
  * Returns human readble difference between now and passed value
