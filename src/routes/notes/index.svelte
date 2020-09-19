@@ -78,6 +78,18 @@
   .prose p.desc {
     margin-top: 8px;
   }
+
+  .info {
+    position: fixed;
+    bottom: 72px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+  }
 </style>
 
 <svelte:head>
@@ -109,5 +121,11 @@
         </div>
       </div>
     {/if}
+  </div>
+
+  <div class="info bg-gray-300 shadow-md hover:shadow-xl">
+    <a href='https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet' class="px-2" target='_blank' title='Markdown Cheatsheet'>
+    <svg aria-hidden="true" focusable="false" data-icon="info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512" class="w-6 h-6"><path fill="currentColor" d="M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z" class=""></path></svg>
+    </a>
   </div>
 </div>
