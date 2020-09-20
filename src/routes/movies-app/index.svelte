@@ -52,7 +52,7 @@
     title={title || name}
     ratings={vote_average}
     {media_type}
-    image="https://image.tmdb.org/t/p/w500/{backdrop_path}"
+    image="https://image.tmdb.org/t/p/w780/{backdrop_path}"
     {description}
     {adult} />
 
