@@ -30,7 +30,7 @@
   }
 </style>
 
-<div class="card-wrapper flex flex-col items-center m-2">
+<div class="card-wrapper flex flex-col items-center my-2 mx-0 sm:m-2">
   <div
     class="card w-32 h-48 bg-gray-700 bg-cover shadow-md"
     style="background-image: url({image})" />
