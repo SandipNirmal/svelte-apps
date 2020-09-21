@@ -1,8 +1,5 @@
 <script>
-  import Nav from './_components/_nav.svelte';
-  import Card from './_components/MovieCard.svelte';
-  import MoviePreview from './_components/Media_Preview.svelte';
-  // import Hoverable from './_components/Hoverable.svelte';
+  import { Nav, MediaCard, MediaPreview, Tabs } from './_components';
 
   import { trending } from './data';
 
@@ -48,13 +45,15 @@
 <div class="movie-app w-screen h-screen">
   <Nav />
 
-  <MoviePreview
+  <MediaPreview
     title={title || name}
     ratings={vote_average}
     {media_type}
     image="https://image.tmdb.org/t/p/w780/{backdrop_path}"
     {description}
     {adult} />
+
+  <Tabs />
 
   <article
     class="p-4 my-8 w-full flex flex-wrap justify-between md:justify-start">
@@ -63,7 +62,7 @@
         class="wrapper"
         on:mouseenter={onHover(i)}
         class:active={i === selectedIndex}>
-        <Card
+        <MediaCard
           title={title || name}
           ratings={vote_average}
           {media_type}
