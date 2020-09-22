@@ -46,6 +46,7 @@
   <style>
     html {
       background: #1a202c;
+      /* background: rgb(3, 37, 65); */
     }
   </style>
 </svelte:head>
@@ -57,7 +58,7 @@
     title={title || name}
     ratings={vote_average}
     {media_type}
-    image="https://image.tmdb.org/t/p/w780/{backdrop_path}"
+    image="https://image.tmdb.org/t/p/w780{backdrop_path}"
     {description}
     {adult} />
 
@@ -74,7 +75,7 @@
           title={title || name}
           ratings={vote_average}
           {media_type}
-          image="https://image.tmdb.org/t/p/w500/{poster_path}" />
+          image="https://image.tmdb.org/t/p/w500{poster_path}" />
       </div>
     {/each}
   </article>

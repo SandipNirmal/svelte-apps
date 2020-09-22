@@ -1,16 +1,19 @@
 <script>
+  import { stores } from '@sapper/app';
+  const { page } = stores();
+
   const tabs = [
     {
       name: 'Trending',
-      href: './movies-app?tab=trending',
+      href: 'trending',
     },
     {
       name: 'Movies',
-      href: './movies-app?tab=movies',
+      href: 'movies',
     },
     {
       name: 'TV Shows',
-      href: './movies-app?tab=tv',
+      href: 'tv',
     },
   ];
 </script>
@@ -20,8 +23,8 @@
     {#each tabs as { name, href }, i}
       <li
         class="p-2 px-4 border-b-2 border-transparent text-gray-300 font-medium"
-        class:border-gray-600={i === 0}>
-        <a {href}> {name} </a>
+        class:border-gray-600={href === $page.query.tab || href === 'trending'}>
+        <a href="./movies-app?tab={href}"> {name} </a>
       </li>
     {/each}
   </ul>
