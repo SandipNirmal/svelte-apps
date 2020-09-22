@@ -15,12 +15,12 @@
   ];
 </script>
 
-<div class="m-4 md:m-8 mb-2">
-  <ul class="flex border-b border-gray-300">
+<div class="m-4 md:mx-8 mb-0">
+  <ul class="flex border-b border-gray-700">
     {#each tabs as { name, href }, i}
       <li
-        class="p-2 px-4 border-b-2 border-transparent"
-        class:border-indigo-600={i === 0}>
+        class="p-2 px-4 border-b-2 border-transparent text-gray-300 font-medium"
+        class:border-gray-600={i === 0}>
         <a {href}> {name} </a>
       </li>
     {/each}

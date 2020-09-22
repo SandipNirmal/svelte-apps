@@ -9,7 +9,7 @@
 
 <style>
   .media {
-    height: 39vh;
+    height: calc(61vh - 48px);
     transition: all 0.5s;
   }
 
@@ -41,11 +41,11 @@
       <span class="meta padding-xs">{media_type}</span>
       {#if adult}<span class="meta padding-xs">18+</span>{/if}
       <div>
-        <span class="bg-yellow-600 padding-xs text-black">{ratings}</span> / 10
+        <span class="bg-yellow-500 padding-xs text-black">{ratings}</span> / 10
       </div>
     </div>
 
-    <h5 class="mt-2 text-xl font-medium">{title}</h5>
-    <p class="mt-1">{description}</p>
+    <h5 class="mt-2 text-2xl font-medium">{title}</h5>
+    <p class="mt-2 text-gray-300 pr-5 text-opacity-75">{description}</p>
   </div>
 </div>

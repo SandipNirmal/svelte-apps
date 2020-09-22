@@ -3,7 +3,7 @@
 
   import { trending } from './data';
 
-  let selectedIndex = 0;
+  let selectedIndex = 17;
   let {
     title = '',
     name = '',
@@ -15,7 +15,7 @@
   } = {};
 
   const onHover = (index) => () => {
-    selectedIndex = index;
+    // selectedIndex = index;
   };
 
   $: {
@@ -38,11 +38,19 @@
   }
   .active {
     /* border: 1px solid #000; */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); */
   }
 </style>
 
-<div class="movie-app w-screen h-screen">
+<svelte:head>
+  <style>
+    html {
+      background: #1a202c;
+    }
+  </style>
+</svelte:head>
+
+<div class="movie-app w-screen h-full bg-gray-900">
   <Nav />
 
   <MediaPreview
@@ -56,7 +64,7 @@
   <Tabs />
 
   <article
-    class="p-4 my-8 w-full flex flex-wrap justify-between md:justify-start">
+    class="p-8 px-4 pt-2 w-full flex flex-wrap justify-between md:justify-start">
     {#each trending as { title, name, vote_average, poster_path, media_type, adult }, i}
       <div
         class="wrapper"
