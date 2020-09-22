@@ -10,4 +10,6 @@ Repository for application examples built using [Svelte](https://svelte.dev) and
 4. Quizz App
 5. Pomodoro App
 6. Movies & TV Shows App
-7. Profile App (Like Github/Twitter) 
+7. Profile App (Like Github/Twitter)
+8. Stock Images App 
+   1. Design - (https://uidesigndaily.com/posts/sketch-stock-photos-page-website-mockup-list-image-day-1132)
