@@ -1,4 +1,6 @@
 <script>
+  import { fly } from 'svelte/transition';
+
   import { mediaStore } from './../media';
   export let mediaId = '';
   export let mediaType = 'movie';
@@ -35,12 +37,12 @@
   }
 </style>
 
-<article>
+<article in:fly={{ y: 200, duration: 500 }} out:fly={{ y: 200, duration: 300 }}>
   <div
     class="poster relative w-screen bg-cover bg-gray-700 h-56"
     style="background-image: url({imageUrl})" />
 
-  <div class="max-w-screen-xl w-full p-4 px-8 prose text-white">
+  <div class="max-w-screen-xl w-full p-4 md:px-8 prose text-white mx-auto">
     <h2 class="border-none" style="color: #fff; margin-bottom: 0">
       {media.title || media.name}
     </h2>
@@ -58,6 +60,6 @@
       </div>
     </div>
 
-    <p class="mt-4 text-gray-100">{media.overview}</p>
+    <p class="mt-4 text-gray-100 text-sm">{media.overview}</p>
   </div>
 </article>
