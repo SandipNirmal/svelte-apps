@@ -12,6 +12,7 @@
     media_type = '',
     overview: description = '',
     adult = '',
+    id = '',
   } = {};
 
   const onHover = (index) => () => {
@@ -27,6 +28,7 @@
       media_type,
       overview: description,
       adult,
+      id,
     } = trending[selectedIndex]);
   }
 </script>
@@ -36,50 +38,36 @@
     box-sizing: border-box;
     height: 100%;
   }
-  .active {
-    /* border: 1px solid #000; */
-    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); */
-  }
-
-  .movie-app {
-    background-color: #0c111b;
-  }
 </style>
 
-<svelte:head>
-  <style>
-    html {
-      background: #0c111b;
-    }
-  </style>
-</svelte:head>
-
-<div class="movie-app w-screen h-full">
-  <Nav />
-
-  <MediaPreview
-    title={title || name}
-    ratings={vote_average}
-    {media_type}
-    image="https://image.tmdb.org/t/p/w780{backdrop_path}"
-    {description}
-    {adult} />
+<div>
+  <a href="./movies-app/{media_type}s/{id}">
+    <MediaPreview
+      title={title || name}
+      ratings={vote_average}
+      {media_type}
+      image="https://image.tmdb.org/t/p/w780{backdrop_path}"
+      {description}
+      {adult} />
+  </a>
 
   <Tabs />
 
   <article
     class="p-8 px-4 pt-4 w-full flex flex-wrap justify-between md:justify-start">
-    {#each trending as { title, name, vote_average, poster_path, media_type, adult }, i}
-      <div
-        class="wrapper"
-        on:mouseenter={onHover(i)}
-        class:active={i === selectedIndex}>
-        <MediaCard
-          title={title || name}
-          ratings={vote_average}
-          {media_type}
-          image="https://image.tmdb.org/t/p/w500{poster_path}" />
-      </div>
+    {#each trending as { title, name, vote_average, poster_path, media_type, adult, id }, i}
+      <a href="./movies-app/{media_type}s/{id}">
+        <div
+          class="wrapper"
+          on:mouseenter={onHover(i)}
+          class:active={i === selectedIndex}>
+          <MediaCard
+            title={title || name}
+            ratings={vote_average}
+            {media_type}
+            image="https://image.tmdb.org/t/p/w500{poster_path}" />
+        </div>
+      </a>
     {/each}
   </article>
 </div>

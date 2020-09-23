@@ -12,6 +12,11 @@
     //   icon: 'T',
     //   href: '/text-editor',
     // },
+    {
+      name: 'Movies App',
+      icon: 'M',
+      href: '/movies-app',
+    },
   ];
 </script>
 

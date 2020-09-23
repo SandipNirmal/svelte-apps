@@ -14,7 +14,7 @@
 
 <nav
   class="rounded-full bg-green-600 p-1 text-white fixed flex items-center
-    justify-center w-12 h-12">
+    justify-center w-12 h-12 z-10">
   <ul class="p-2">
     <li>
       <a href="." alt="Home">
