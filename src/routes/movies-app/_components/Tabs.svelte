@@ -23,7 +23,7 @@
     {#each tabs as { name, href }, i}
       <li
         class="p-2 px-4 border-b-2 border-transparent text-gray-300 font-medium"
-        class:border-gray-600={href === $page.query.tab || href === 'trending'}>
+        class:border-gray-600={$page.query.tab ? href === $page.query.tab : href === 'trending'}>
         <a href="./movies-app?tab={href}"> {name} </a>
       </li>
     {/each}

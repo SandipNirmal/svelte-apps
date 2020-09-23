@@ -14,14 +14,16 @@
 
   .card {
     transition: all 0.3s;
+    transform: scale3d(1, 1, 1);
   }
 
   .card:hover,
   .card:focus {
-    transform: scale(1.15);
     cursor: pointer;
-    box-shadow: 0 20px 25px 5px rgba(0, 0, 0, 0.1),
-      0 10px 10px 5px rgba(0, 0, 0, 0.04);
+    z-index: 4;
+    /* box-shadow: 0 20px 25px 5px rgba(255, 255, 255, 0.1),
+      0 10px 10px 5px rgba(255, 255, 255, 0.09); */
+    transform: scale3d(1.3, 1.3, 1.3) perspective(800px);
   }
 
   .media_type {
