@@ -9,7 +9,11 @@
 </script>
 
 <script>
+  import { mediaStore } from './../media';
+
   export let movieId = '';
+
+  $: console.log($mediaStore);
 </script>
 
 <div>Movie {movieId}</div>

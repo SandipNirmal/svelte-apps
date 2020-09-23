@@ -1,7 +1,8 @@
 <script>
-  import { Nav, MediaCard, MediaPreview, Tabs } from './_components';
+  import { MediaCard, MediaPreview, Tabs } from './_components';
 
   import { trending } from './data';
+  import { mediaStore } from './media';
 
   let selectedIndex = 17;
   let {
@@ -16,7 +17,7 @@
   } = {};
 
   const onHover = (index) => () => {
-    // selectedIndex = index;
+    $mediaStore = trending[index];
   };
 
   $: {
@@ -31,6 +32,8 @@
       id,
     } = trending[selectedIndex]);
   }
+
+  // $: console.log($mediaStore)
 </script>
 
 <style>
