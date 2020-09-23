@@ -9,11 +9,9 @@
 </script>
 
 <script>
-  import { mediaStore } from './../media';
+  import Details from './../_components/Details.svelte'
 
   export let movieId = '';
-
-  $: console.log($mediaStore);
 </script>
 
-<div>Movie {movieId}</div>
+<Details mediaId={movieId} mediaType='movie' />

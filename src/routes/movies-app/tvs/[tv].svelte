@@ -9,7 +9,8 @@
 </script>
 
 <script>
+  import Details from './../_components/Details.svelte';
   export let showId = '';
 </script>
 
-<div>TV Show: {showId}</div>
+<Details mediaId={showId} mediaType="tv" />
