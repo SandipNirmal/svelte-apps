@@ -1,4 +1,6 @@
 <script>
+  import Badge from './Badge.svelte';
+
   export let title = '';
   // export let description = '';
   export let image = '';
@@ -25,12 +27,6 @@
       0 10px 10px 5px rgba(255, 255, 255, 0.09); */
     transform: scale3d(1.3, 1.3, 1.3) perspective(800px);
   }
-
-  .media_type {
-    font-size: 10px;
-    padding: 1px 4px;
-    font-weight: 600;
-  }
 </style>
 
 <div class="card-wrapper flex flex-col items-center my-4 mx-0 sm:m-4">
@@ -43,8 +39,7 @@
       <h5 class="font-medium text-white">{title}</h5>
     </div>
     <div class="flex justify-between px-1 py-1">
-      <span
-        class="media_type bg-teal-300 uppercase rounded-sm text-gray-700">{media_type}</span>
+      <Badge>{media_type.toUpperCase()}</Badge>
       <span class="font-medium text-gray-500">{ratings}/10</span>
     </div>
   </div>
