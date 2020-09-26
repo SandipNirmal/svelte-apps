@@ -5,6 +5,7 @@
 
   let promise = getTrendingMedia('all');
   let trending = [];
+  let media = {};
 
   async function getTrendingMedia(type) {
     const res = await fetch(
@@ -15,6 +16,7 @@
 
     if (res.ok) {
       trending = trending.results;
+      media = trending.length ? trending[selectedIndex] : {};
       return trending;
     } else {
       throw new Error(trending);
@@ -22,33 +24,10 @@
   }
 
   let selectedIndex = 0;
-  let {
-    title = '',
-    name = '',
-    vote_average = '',
-    backdrop_path = '',
-    media_type = '',
-    overview: description = '',
-    adult = '',
-    id = '',
-  } = {};
 
   const onHover = (index) => () => {
     $mediaStore = trending[index];
   };
-
-  $: {
-    ({
-      title,
-      name,
-      vote_average,
-      backdrop_path,
-      media_type,
-      overview: description,
-      adult,
-      id,
-    } = trending.length ? trending[selectedIndex] : {});
-  }
 </script>
 
 <style>
@@ -59,16 +38,7 @@
 </style>
 
 <div>
-  <a href="./movies-app/{media_type}s/{id}">
-    <MediaPreview
-      title={title || name}
-      ratings={vote_average}
-      {media_type}
-      image="https://image.tmdb.org/t/p/w780{backdrop_path}"
-      {description}
-      {adult}
-      loading={!trending.length} />
-  </a>
+  <MediaPreview {media} loading={!trending.length} />
 
   <Tabs />
 
