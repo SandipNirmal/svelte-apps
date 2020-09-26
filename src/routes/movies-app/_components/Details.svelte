@@ -249,7 +249,7 @@
 
 <style>
   .poster {
-    height: 50vh;
+    height: 40vh;
   }
 </style>
 
