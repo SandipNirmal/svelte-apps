@@ -1,4 +1,7 @@
 <script>
+  // import { stores } from '@sapper/app';
+  // const { page } = stores();
+
   import { MediaCard, MediaPreview, Tabs } from './_components';
   import { mediaStore } from './media';
   import Spinner from './_components/Spinner.svelte';
@@ -29,6 +32,10 @@
   const onHover = (index) => () => {
     $mediaStore = trending[index];
   };
+
+  $: {
+    // getTrendingMedia($page.query.tab || 'all');
+  }
 </script>
 
 <style>
