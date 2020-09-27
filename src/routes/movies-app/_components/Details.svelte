@@ -37,7 +37,7 @@
     class="poster relative w-screen bg-cover bg-gray-700 h-56"
     style="background-image: url({`https://image.tmdb.org/t/p/w780${media.backdrop_path}`})" />
 
-  {#if media.title}
+  {#if media.title || media.name}
     <div class="max-w-screen-lg w-full p-4 md:px-8 prose text-white mx-auto">
       <section>
         <Badge>{mediaType.toUpperCase()}</Badge>
