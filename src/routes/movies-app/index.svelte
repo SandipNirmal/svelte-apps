@@ -2,6 +2,7 @@
   import { MediaCard, MediaPreview, Tabs } from './_components';
   import { mediaStore } from './media';
   import Spinner from './_components/Spinner.svelte';
+  import { API_KEY } from './config';
 
   let promise = getTrendingMedia('all');
   let trending = [];
@@ -9,7 +10,7 @@
 
   async function getTrendingMedia(type) {
     const res = await fetch(
-      `https://api.themoviedb.org/3/trending/${type}/day?api_key=2490cc7c5bae166cde5e69c074cf83ea`
+      `https://api.themoviedb.org/3/trending/${type}/day?api_key=${API_KEY}`
     );
 
     trending = await res.json();
