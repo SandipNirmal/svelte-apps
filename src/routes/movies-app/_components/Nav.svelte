@@ -9,6 +9,6 @@
     <a href="./movies-app"><h4 class="sm:text-xl font-medium">
         The MovieDB
       </h4></a>
-    <div><input type="search" class="text-gray-700 rounded-full" /></div>
+    <!-- <div><input type="search" class="text-gray-700 rounded-full" /></div> -->
   </div>
 </nav>

@@ -38,7 +38,10 @@
 </style>
 
 <div>
-  <MediaPreview {media} loading={!trending.length} />
+  <MediaPreview
+    {media}
+    loading={!trending.length}
+    on:mouseenter={onHover(selectedIndex)} />
 
   <Tabs />
 

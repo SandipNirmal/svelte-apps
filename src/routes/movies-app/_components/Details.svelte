@@ -283,17 +283,16 @@
       <p class="mt-4 text-gray-100 text-sm">{media.overview}</p>
     </section>
 
-    <section>
+    <!-- <section>
       <h4 class="text-xl font-medium" style="color: white">Cast</h4>
-
-      <!-- <div class="flex flex-wrap">
+      <div class="flex flex-wrap">
         {#each casts as { name, character, profile_path }}
           <Cast
             {name}
             {character}
             profileImage="https://image.tmdb.org/t/p/w45{profile_path}" />
         {/each}
-      </div> -->
-    </section>
+      </div>
+    </section> -->
   </div>
 </article>

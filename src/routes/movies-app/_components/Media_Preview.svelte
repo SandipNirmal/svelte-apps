@@ -61,7 +61,7 @@
     <Spinner />
   </div>
 {:else}
-  <a href="./movies-app/{media_type}s/{id}">
+  <a href="./movies-app/{media_type}s/{id}" on:mouseenter>
     <div
       class="media relative w-screen bg-cover bg-gray-700 cursor-pointer text-sm"
       style="background-image: url({image})">
