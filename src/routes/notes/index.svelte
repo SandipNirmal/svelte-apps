@@ -78,6 +78,18 @@
   .prose p.desc {
     margin-top: 8px;
   }
+
+  .info {
+    position: fixed;
+    bottom: 72px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+  }
 </style>
 
 <svelte:head>
