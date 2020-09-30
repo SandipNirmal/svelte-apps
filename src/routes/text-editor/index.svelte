@@ -1,20 +1,20 @@
 <script>
   import Sidebar from '../notes/_sidebar.svelte';
-  import Editor from './_editor.svelte';
+  // import Editor from './_editor.svelte';
 
   const storage_key = 'text_editor';
   let sidebarOpen = false;
   let selectedNote = 0;
   let notes = {};
-  let currentNote = {};
+  // let currentNote = {};
   let notesList = [];
 
   const toggleSidebar = () => (sidebarOpen = !sidebarOpen);
   const setSelected = (index) => (selectedNote = index);
 
   let getNotes = () => {};
-  let createNote = () => {};
-  let getNote = () => {};
+  // let createNote = () => {};
+  // let getNote = () => {};
 
   if (process.browser) {
     // return all notes
@@ -40,21 +40,21 @@
 
   notes = getNotes() || {};
 
-  const addNewNote = () => {
-    const content = {
-      id: Date.now(),
-      title: 'New Note',
-      content: ``,
-    };
-    notes = createNote(content);
-  };
+  // const addNewNote = () => {
+  //   const content = {
+  //     id: Date.now(),
+  //     title: 'New Note',
+  //     content: ``,
+  //   };
+  //   notes = createNote(content);
+  // };
 
-  const updateNote = (id, content) => {
-    const currentNotes = getNotes();
-    currentNotes[id] = { ...content, updatedAt: Date.now() };
-    localStorage.setItem(storage_key, JSON.stringify(currentNotes));
-    notes = getNotes();
-  };
+  // const updateNote = (id, content) => {
+  //   const currentNotes = getNotes();
+  //   currentNotes[id] = { ...content, updatedAt: Date.now() };
+  //   localStorage.setItem(storage_key, JSON.stringify(currentNotes));
+  //   notes = getNotes();
+  // };
 
   const deleteNote = (id) => {
     const currentNotes = getNotes();
@@ -63,11 +63,11 @@
     notes = getNotes();
   };
 
-  const handleUpdate = (e) => {
-    const {note} = e.detail;
+  // const handleUpdate = (e) => {
+  //   const { note } = e.detail;
 
-    // updateNote(note.id, note);
-  }
+  //   // updateNote(note.id, note);
+  // };
 
   $: notesList = Object.keys(notes)
     .map((note) => notes[note])
@@ -75,7 +75,7 @@
   $: currentNote = notesList[selectedNote] || {};
 </script>
 
-<style>
+<!-- <style>
   button {
     border-radius: 20px;
   }
@@ -83,7 +83,7 @@
   .prose p.desc {
     margin-top: 8px;
   }
-</style>
+</style> -->
 
 <svelte:head>
   <meta name="description" content="Notes Apps | Built with Svelte" />
@@ -100,7 +100,7 @@
       {deleteNote} />
   {/if}
 
-  <div class="editor flex-1">
+  <!-- <div class="editor flex-1">
     {#if notesList.length}
       <Editor {toggleSidebar} note={currentNote} on:text-change={handleUpdate} {addNewNote} />
     {:else}
@@ -114,5 +114,5 @@
         </div>
       </div>
     {/if}
-  </div>
+  </div> -->
 </div>

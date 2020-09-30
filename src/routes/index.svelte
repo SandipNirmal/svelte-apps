@@ -23,7 +23,7 @@
     {
       name: 'Movies App',
       icon: 'M',
-      href: '/moviesapp',
+      href: '/movies-app',
     },
   ];
 </script>
