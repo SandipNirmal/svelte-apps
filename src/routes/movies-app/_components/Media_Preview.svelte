@@ -36,11 +36,12 @@
   .media {
     height: calc(61vh - 48px);
     transition: all 0.5s;
+    margin: 0 auto;
   }
 
   .details {
     /* transition: all 0.5s; */
-    background: linear-gradient(to right, #000 40%, transparent);
+    background: linear-gradient(to right, #0c111b 40%, transparent);
     overflow-y: hidden;
   }
 
@@ -63,7 +64,8 @@
 {:else}
   <a href="./movies-app/{media_type}s/{id}" on:mouseenter>
     <div
-      class="media relative w-screen bg-cover bg-gray-700 cursor-pointer text-sm"
+      class="media relative w-screen max-w-screen-xl bg-cover bg-gray-700
+        cursor-pointer text-sm"
       style="background-image: url({image})">
       <div
         class="details absolute text-white h-full w-3/5 md:w-1/2 left-0 top-0

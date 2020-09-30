@@ -1,6 +1,9 @@
 <script>
   import { onMount } from 'svelte';
-  import { fly } from 'svelte/transition';
+  import {
+    fly,
+    // scale
+  } from 'svelte/transition';
 
   import Badge from './Badge.svelte';
   import Spinner from './Spinner.svelte';
@@ -29,12 +32,14 @@
 <style>
   .poster {
     height: 40vh;
+    margin: 0 auto;
   }
 </style>
 
-<article in:fly={{ y: 200, duration: 500 }} out:fly={{ y: 200, duration: 300 }}>
+<article in:fly={{ y: 200, duration: 500 }}>
+  <!-- out:scale -->
   <div
-    class="poster relative w-screen bg-cover bg-gray-700 h-56"
+    class="poster relative w-screen max-w-screen-xl bg-cover bg-gray-700 h-56"
     style="background-image: url({`https://image.tmdb.org/t/p/w780${media.backdrop_path}`})" />
 
   {#if media.title || media.name}
