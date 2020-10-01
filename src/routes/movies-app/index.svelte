@@ -34,6 +34,10 @@
     $mediaStore = trending[index];
   };
 
+  const handleTabSelection = (e) => {
+    promise = getTrendingMedia(e.detail.selectedTab);
+  };
+
   $: {
     // getTrendingMedia($page.query.tab || 'all');
   }
@@ -53,7 +57,7 @@
     on:mouseenter={onHover(selectedIndex)} />
 
   <div class="max-w-screen-xl my-0 mx-auto">
-    <Tabs />
+    <Tabs on:tab-selection={handleTabSelection} />
 
     {#await promise}
       <div class="h-40 flex items-center justify-center">
