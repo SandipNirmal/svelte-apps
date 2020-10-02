@@ -10,7 +10,7 @@
   let notesList = [];
 
   const toggleSidebar = () => (sidebarOpen = !sidebarOpen);
-  const setSelected = (index) => (selectedNote = index);
+  const setSelected = (e) => (selectedNote = e.detail.selected);
 
   let getNotes = () => {};
   let createNote = () => {};
@@ -100,11 +100,11 @@
 <div class="flex h-screen">
   {#if sidebarOpen}
     <Sidebar
-      {toggleSidebar}
       {notesList}
-      {setSelected}
       {selectedNote}
-      {deleteNote} />
+      on:toggle-sidebar={toggleSidebar}
+      on:select-note={setSelected}
+      on:delete-note={(e) => deleteNote(e.detail.id)} />
   {/if}
 
   <div class="editor flex-1">
