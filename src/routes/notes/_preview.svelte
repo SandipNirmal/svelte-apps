@@ -11,6 +11,6 @@
   }
 </style>
 
-<article class="prose prose-sm max-h-screen overflow-y-scroll px-6 pb-16">
+<article class="prose max-h-screen overflow-y-scroll px-6 pb-16">
   {@html markup}
 </article>
