@@ -46,13 +46,16 @@
   @apply font-normal bg-gray-800;
 }
 
-.prose pre code {
+.prose pre {
   padding: 0.2em 0.4em;
   border-radius: 2px;
+  max-width: calc(100vw - 48px);
 }
 
-.prose blockquote {
-  @apply text-gray-800 text-xl;
+.prose table {
+  display: block;
+  max-width: calc(100vw - 48px);
+  overflow-x: scroll;
 }
 
 @tailwind utilities;
