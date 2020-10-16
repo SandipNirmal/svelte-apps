@@ -4,12 +4,12 @@ Repository for application examples built using [Svelte](https://svelte.dev) and
 
 ### Applications
 
-1. Notes App
-2. Todo App
-3. Weather App
-4. Quizz App
-5. Pomodoro App
-6. Movies & TV Shows App
-7. Profile App (Like Github/Twitter)
-8. Stock Images App 
-   1. Design - (https://uidesigndaily.com/posts/sketch-stock-photos-page-website-mockup-list-image-day-1132)
+- [x] Notes App
+- [x] Movies & TV Shows App
+- [ ] Todo App
+- [ ] Weather App
+- [ ] Quizz App
+- [ ] Pomodoro App
+- [ ] Profile App (Like Github/Twitter)
+- [ ] Stock Images App
+      1. Design - (https://uidesigndaily.com/posts/sketch-stock-photos-page-website-mockup-list-image-day-1132)
